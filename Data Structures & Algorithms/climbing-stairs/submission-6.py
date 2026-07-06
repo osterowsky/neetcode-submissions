@@ -1,0 +1,16 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        memo = [-1] * (n + 1)
+        def ways(n: int):
+            if memo[n] != -1:
+                return memo[n]
+            
+            if n == 1:
+                return 1
+            elif n == 2:
+                return 2
+            
+            memo[n] = ways(n - 1) + ways(n - 2)
+            return memo[n]
+        
+        return ways(n)
